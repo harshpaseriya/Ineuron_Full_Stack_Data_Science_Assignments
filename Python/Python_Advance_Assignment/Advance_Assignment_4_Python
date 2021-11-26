@@ -1,0 +1,38 @@
+#1. What is the concept of an abstract superclass?
+
+#A class containing one or more abstract methods is called an abstract class.
+
+#Abstract methods do not contain any implementation. 
+#Instead, all the implementations can be defined in the methods of sub-classes that inherit the abstract class.
+#An abstract method is a method that has a declaration but does not have an implementation. 
+#Python comes with a module that provides the base for defining Abstract Base classes(ABC) and that module name is abc. 
+#ABC works by decorating methods of the base class as abstract and then registering concrete sub classes as implementations 
+# of the abstract base. Such abstract classes are called abstract super class of the subclasses which inherit them.
+# A method becomes abstract when decorated with the keyword @abstractmethod.
+
+from abc import ABC,abstractmethod
+
+class Abs_class(ABC): # Abstract class
+    def display(self):
+        print("Method with in the abstract class")
+        
+    @abstractmethod
+    def absmethod(self):pass # abstract method
+    
+
+class subclass(Abs_class):
+    
+    def display_subclass(self):
+        print("Inside the sub class of abstract class")
+        
+    def absmethod(self):
+        print("Implementation of the absclass abstract method")
+
+
+sub=subclass()
+sub.display()
+sub.display_subclass()
+sub.absmethod()
+
+
+
